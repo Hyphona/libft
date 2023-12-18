@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 13:08:10 by alperrot          #+#    #+#             */
-/*   Updated: 2023/12/17 11:15:28 by alperrot         ###   ########.fr       */
+/*   Created: 2023/12/18 12:49:55 by alperrot          #+#    #+#             */
+/*   Updated: 2023/12/18 12:50:09 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_putchar_fd(char c, int fd)
+int	ft_sqrt(int nb)
 {
-	if (!ft_isascii(c) || !fd)
+	int	i;
+	int	x;
+
+	i = 0;
+	if (nb < 0)
 		return (0);
-	return (write(fd, &c, 1));
+	while (i <= nb && i < 46341)
+	{
+		x = i * i;
+		if (x == nb)
+			return (i);
+		if (nb < x)
+			return (0);
+		i++;
+	}
+	return (0);
 }

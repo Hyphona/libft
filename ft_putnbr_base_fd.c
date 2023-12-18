@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 12:57:58 by alperrot          #+#    #+#             */
-/*   Updated: 2023/12/17 11:26:37 by alperrot         ###   ########.fr       */
+/*   Created: 2023/12/17 12:01:31 by alperrot          #+#    #+#             */
+/*   Updated: 2023/12/17 16:17:50 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_base_fd(int n, char *base, int fd)
 {
-	size_t	n_lenght;
-	char	c;
+	size_t	lenght;
+	int		base_len;
 
-	if (!fd)
+	if (!base || !fd)
 		return (0);
-	n_lenght = ft_intlen(n);
-	c = '0';
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
+	if (!ft_check_base(base))
 		return (0);
-	}
-	else if (n < 0)
+	lenght = 0;
+	base_len = ft_strlen(base);
+	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		lenght += ft_putchar_fd('-', fd);
 		n = -n;
 	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + '0';
-	ft_putchar_fd(c, fd);
-	return (n_lenght);
+	if (n >= base_len)
+	{
+		lenght = ft_putnbr_base_fd(n / base_len, base, fd);
+		lenght += ft_putnbr_base_fd(n % base_len, base, fd);
+	}
+	else
+		lenght += ft_putchar_fd(base[n], fd);
+	return (lenght);
 }

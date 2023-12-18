@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_check_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 13:08:10 by alperrot          #+#    #+#             */
-/*   Updated: 2023/12/17 11:15:28 by alperrot         ###   ########.fr       */
+/*   Created: 2023/12/17 15:59:02 by alperrot          #+#    #+#             */
+/*   Updated: 2023/12/17 16:24:54 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar_fd(char c, int fd)
+int	ft_check_base(char *base)
 {
-	if (!ft_isascii(c) || !fd)
+	if (!base || ft_strlen(base) < 2 || ft_strlen(base) > 16)
 		return (0);
-	return (write(fd, &c, 1));
+	while (*base)
+	{
+		if (!ft_isalnum(*base))
+			return (0);
+		base++;
+	}
+	return (1);
 }

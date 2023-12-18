@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/18 12:57:58 by alperrot          #+#    #+#             */
-/*   Updated: 2023/12/17 11:26:37 by alperrot         ###   ########.fr       */
+/*   Created: 2023/12/18 12:13:52 by alperrot          #+#    #+#             */
+/*   Updated: 2023/12/18 12:30:54 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr_fd(int n, int fd)
+int	ft_atoi_base(const char *str, char *base)
 {
-	size_t	n_lenght;
-	char	c;
+	size_t	i;
+	int		n;
+	int		neg;
+	int		base_len;
 
-	if (!fd)
-		return (0);
-	n_lenght = ft_intlen(n);
-	c = '0';
-	if (n == -2147483648)
+	i = 0;
+	n = 0;
+	neg = 1;
+	base_len = ft_strlen(base);
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return (0);
+		neg = -1;
+		i++;
 	}
-	else if (n < 0)
+	while (*ft_strchr(base, str[i]) != '\0')
 	{
-		ft_putchar_fd('-', fd);
-		n = -n;
+		n = (n * base_len) + (ft_strchr(base, str[i]) - base);
+		i++;
 	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + '0';
-	ft_putchar_fd(c, fd);
-	return (n_lenght);
+	n = n * neg;
+	return (n);
 }

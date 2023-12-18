@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_isprime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 13:08:10 by alperrot          #+#    #+#             */
-/*   Updated: 2023/12/17 11:15:28 by alperrot         ###   ########.fr       */
+/*   Created: 2023/12/18 12:51:36 by alperrot          #+#    #+#             */
+/*   Updated: 2023/12/18 12:51:50 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_putchar_fd(char c, int fd)
+int	ft_isprime(int nb)
 {
-	if (!ft_isascii(c) || !fd)
+	int	i;
+
+	if (nb < 0 || nb == 0 || nb == 1)
 		return (0);
-	return (write(fd, &c, 1));
+	i = 2;
+	while (i <= (nb / i))
+	{
+		if (nb % i == 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }
