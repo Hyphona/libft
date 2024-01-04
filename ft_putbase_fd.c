@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putbase_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 16:03:31 by alperrot          #+#    #+#             */
-/*   Updated: 2024/01/03 12:11:57 by alperrot         ###   ########.fr       */
+/*   Created: 2023/12/17 12:01:31 by alperrot          #+#    #+#             */
+/*   Updated: 2024/01/03 12:19:21 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "libft.h"
+
+size_t	ft_putbase_fd(long unsigned int n, char *base, int fd)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	size_t	len;
+	size_t	b_len;
+
+	if (!base || !fd)
+		return (0);
+	if (!ft_check_base(base))
+		return (0);
+	len = 0;
+	b_len = ft_strlen(base);
+	if (n >= b_len)
+	{
+		len = ft_putbase_fd(n / b_len, base, fd);
+		len += ft_putbase_fd(n % b_len, base, fd);
+	}
+	else
+		len += ft_putchar_fd(base[n], fd);
+	return (len);
 }

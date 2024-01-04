@@ -7,7 +7,7 @@ SRC	:= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c\
 	ft_substr.c ft_tolower.c ft_toupper.c ft_isxdigit.c ft_isblank.c\
 	ft_iscntrl.c ft_ispunct.c ft_isspace.c ft_countword.c ft_intlen.c\
 	ft_atoi_base.c ft_check_base.c ft_factorial.c ft_find_next_prime.c\
-	ft_isprime.c ft_power.c ft_putnbr_base_fd.c ft_sqrt.c
+	ft_isprime.c ft_power.c ft_putbase_fd.c ft_sqrt.c
 CC	:= gcc
 CFLAGS	:= -Wall -Werror -Wextra -I./
 OFILES	:= $(SRC:.c=.o)
