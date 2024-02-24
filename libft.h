@@ -6,7 +6,7 @@
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:40:19 by alperrot          #+#    #+#             */
-/*   Updated: 2024/02/24 23:00:47 by alperrot         ###   ########.fr       */
+/*   Updated: 2024/02/24 23:30:38 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,12 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+/*
+ * ft_printf
+ */
+int		ft_printf(const char *format, ...);
+int		ft_isvalid(const char *fotmat);
+char	ft_parser(const char *str);
 
 #endif
