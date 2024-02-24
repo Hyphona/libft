@@ -6,7 +6,7 @@
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 12:01:31 by alperrot          #+#    #+#             */
-/*   Updated: 2024/01/03 12:19:21 by alperrot         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:28:51 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_putbase_fd(long unsigned int n, char *base, int fd)
 	size_t	len;
 	size_t	b_len;
 
-	if (!base || !fd)
+	if (!base || fd < 0)
 		return (0);
 	if (!ft_check_base(base))
 		return (0);

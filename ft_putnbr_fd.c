@@ -6,7 +6,7 @@
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:57:58 by alperrot          #+#    #+#             */
-/*   Updated: 2024/01/03 12:05:00 by alperrot         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:29:14 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_putnbr_fd(int n, int fd)
 	size_t	len;
 	char	c;
 
-	if (!fd)
+	if (fd < 0)
 		return (0);
 	len = 0;
 	c = '0';

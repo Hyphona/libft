@@ -6,7 +6,7 @@
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 13:08:10 by alperrot          #+#    #+#             */
-/*   Updated: 2024/01/03 12:20:36 by alperrot         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:28:39 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_putchar_fd(char c, int fd)
 {
-	if (!ft_isascii(c) || !fd)
+	if (fd < 0)
 		return (0);
 	return (write(fd, &c, 1));
 }

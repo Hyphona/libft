@@ -6,7 +6,7 @@
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 12:01:31 by alperrot          #+#    #+#             */
-/*   Updated: 2023/12/17 16:17:50 by alperrot         ###   ########.fr       */
+/*   Updated: 2024/02/24 22:29:07 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putnbr_base_fd(int n, char *base, int fd)
 	size_t	lenght;
 	int		base_len;
 
-	if (!base || !fd)
+	if (!base || fd < 0)
 		return (0);
 	if (!ft_check_base(base))
 		return (0);
