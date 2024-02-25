@@ -13,6 +13,15 @@ SRC	:= 	./char/ft_isalnum.c\
 		./conv/ft_atoi_base.c\
 		./conv/ft_atoi.c\
 		./conv/ft_itoa.c\
+		./lst/ft_lstadd_back.c\
+		./lst/ft_lstadd_front.c\
+		./lst/ft_lstclear.c\
+		./lst/ft_lstdelone.c\
+		./lst/ft_lstiter.c\
+		./lst/ft_lstlast.c\
+		./lst/ft_lstmap.c\
+		./lst/ft_lstnew.c\
+		./lst/ft_lstsize.c\
 		./math/ft_factorial.c\
 		./math/ft_find_next_prime.c\
 		./math/ft_isprime.c\
