@@ -6,7 +6,7 @@
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:40:19 by alperrot          #+#    #+#             */
-/*   Updated: 2024/02/25 17:12:12 by alperrot         ###   ########.fr       */
+/*   Updated: 2024/02/26 13:03:43 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 int		ft_power(int nb, int power);
+int		ft_printf(const char *format, ...);
 size_t	ft_putchar_fd(char c, int fd);
 size_t	ft_putendl_fd(char *s, int fd);
 size_t	ft_putbase_fd(long unsigned int n, char *base, int fd);
@@ -67,13 +68,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-
-/*
- * ft_printf
- */
-int		ft_printf(const char *format, ...);
-int		ft_isvalid(const char *fotmat);
-char	ft_parser(const char *str);
 
 /*
  * Linked list

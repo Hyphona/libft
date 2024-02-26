@@ -34,8 +34,7 @@ SRC	:= 	./char/ft_isalnum.c\
 		./mem/ft_memcpy.c\
 		./mem/ft_memmove.c\
 		./mem/ft_memset.c\
-		./out/ft_printf/ft_printf_checker.c\
-		./out/ft_printf/ft_printf.c\
+		./out/ft_printf.c\
 		./out/ft_putbase_fd.c\
 		./out/ft_putchar_fd.c\
 		./out/ft_putendl_fd.c\
