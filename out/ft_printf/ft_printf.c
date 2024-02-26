@@ -6,7 +6,7 @@
 /*   By: alperrot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:33:18 by alperrot          #+#    #+#             */
-/*   Updated: 2024/02/24 23:28:10 by alperrot         ###   ########.fr       */
+/*   Updated: 2024/02/26 12:41:40 by alperrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ static size_t	ft_format(const char type, void *v)
 		l += ft_putbase_fd(*((unsigned int *) &v), "0123456789abcdef", 1);
 	else if (type == 'X')
 		l += ft_putbase_fd(*((unsigned int *) &v), "0123456789ABCDEF", 1);
-	else
-		l += ft_putstr_fd("Success", 1);
 	return (l);
 }
 
